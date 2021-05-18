@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,9 +60,21 @@ export default function GlobalData() {
 
   return (
     <div className={classes.root}>
+
+    <Typography variant="h3" style={{color:"grey",fontWeight:"bold"}}>
+
+        Global Data
+        
+    </Typography>
+
       <Paper elevation={3}>
-      <Typography variant="h4" gutterBottom style={{color:"#334443",fontWeight:"bold"}}>
-      {isFetched?"Loading...":covidData && covidData.Global && covidData.Global.TotalConfirmed}
+      <Typography variant="h6" gutterBottom style={{color:"#334443",fontWeight:"bold"}}>
+      {isFetched?"Loading...":covidData && covidData.Global && <CountUp 
+      start={0}
+      end={covidData.Global.TotalConfirmed}
+      duration={2.75}
+      separator=","
+      > </CountUp>}
       </Typography>
 
       <Typography variant="subtitle2" gutterBottom>
@@ -74,8 +87,16 @@ export default function GlobalData() {
 
       <Paper elevation={3}>
           
-      <Typography variant="h4" gutterBottom style={{color:"green",fontWeight:"bold"}}>
-      {isFetched?"Loading...":covidData && covidData.Global && covidData.Global.TotalRecovered}
+      <Typography variant="h6" gutterBottom style={{color:"green",fontWeight:"bold"}}>
+
+      {isFetched?"Loading...":covidData && covidData.Global && <CountUp 
+      start={0}
+      end={covidData.Global.TotalRecovered}
+      duration={2.75}
+      separator=","
+      > </CountUp>}
+
+
       </Typography>
 
       <Typography variant="subtitle2" gutterBottom>
@@ -87,8 +108,15 @@ export default function GlobalData() {
 
       <Paper elevation={3}>
         
-      <Typography variant="h4" gutterBottom style={{color:"#e1701a",fontWeight:"bold"}}>
-      {isFetched?"Loading...":covidData && covidData.Global && covidData.Global.NewConfirmed}
+      <Typography variant="h6" gutterBottom style={{color:"#e1701a",fontWeight:"bold"}}>
+      
+      {isFetched?"Loading...":covidData && covidData.Global && <CountUp 
+      start={0}
+      end={covidData.Global.NewConfirmed}
+      duration={2.75}
+      separator=","
+      > </CountUp>}
+
       </Typography>
 
       <Typography variant="subtitle2" gutterBottom>
@@ -100,8 +128,15 @@ export default function GlobalData() {
 
       <Paper elevation={3}>
        
-      <Typography variant="h4" gutterBottom style={{color:"red",fontWeight:"bold"}}>
-      {isFetched?"Loading...":covidData && covidData.Global && covidData.Global.TotalDeaths}
+      <Typography variant="h6" gutterBottom style={{color:"red",fontWeight:"bold"}}>
+      
+      {isFetched?"Loading...":covidData && covidData.Global && <CountUp 
+      start={0}
+      end={covidData.Global.TotalDeaths}
+      duration={2.75}
+      separator=","
+      > </CountUp>}
+
       </Typography>
 
       <Typography variant="subtitle2" gutterBottom>
